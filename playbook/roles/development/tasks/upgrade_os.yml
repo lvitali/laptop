@@ -1,0 +1,10 @@
+---
+
+  - name: Install aptitude
+    apt:
+      pkg: aptitude
+      state: present
+
+  - name: Upgrade system
+    apt:
+      upgrade: yes

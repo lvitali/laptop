@@ -1,0 +1,8 @@
+---
+
+  - include: upgrade_os.yml
+  - include: install_common_packages.yml
+  - include: install_zsh_and_oh-my-zsh.yml
+  - include: install_docker.yml
+  - include: install_phpstorm_and_sublime.yml
+  - include: reboot.yml

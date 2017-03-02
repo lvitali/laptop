@@ -1,0 +1,19 @@
+---
+
+  - name: Install docker
+    apt:
+      pkg: docker.io
+      state: present
+
+  - name: Add {{ user }} to Docker group
+    user:
+      name: "{{ user }}"
+      groups: docker
+      append: yes
+    notify:
+      - "start docker"
+
+  - name: Install docker-compose
+    pip:
+      name: docker-compose
+      state: present

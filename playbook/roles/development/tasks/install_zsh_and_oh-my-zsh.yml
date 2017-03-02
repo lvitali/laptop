@@ -1,0 +1,27 @@
+---
+
+  - name: Install zsh
+    apt:
+      pkg: zsh
+      state: present
+
+  - name: Copy .zshrc template
+    template:
+      src: ../templates/.zshrc.j2
+      dest: /home/{{ user }}/.zshrc
+
+  - name: Download oh-my-zsh
+    get_url:
+      url: https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
+      dest: /tmp/install_omz.sh
+      mode: u+rwx
+
+  - name: Install oh-my-zsh
+    become: true
+    become_user: "{{ user }}"
+    raw: sh /tmp/install_omz.sh
+
+  - name: Change {{ user }} shell to zsh
+    user: 
+      name: "{{ user }}"
+      shell: zsh

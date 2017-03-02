@@ -1,0 +1,22 @@
+---
+
+  - name: Install packages
+    apt:
+      pkg: "{{ item }}"
+      state: present
+      update_cache: yes
+    with_items:
+      - git
+      - emacs
+      - firefox
+      - tmux
+      - xen-hypervisor-4.6-amd64
+
+  - name: Download google chrome
+    get_url: 
+      url: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+      dest: /tmp/google-chrome-stable_current_amd64.deb
+  
+  - name: Install google chrome
+    apt: 
+      deb: /tmp/google-chrome-stable_current_amd64.deb
