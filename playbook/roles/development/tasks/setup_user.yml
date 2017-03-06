@@ -1,0 +1,14 @@
+---
+
+  - name: Create {{ user }} if not exists
+    user:
+      name: "{{ user }}"
+      uid: 1000
+      createhome: yes
+      state: present
+
+  - name: Create workspace folder
+    file: 
+      path: /home/{{ user }}/workspace
+      state: directory
+      owner: "{{ user }}"
