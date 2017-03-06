@@ -20,6 +20,7 @@
     become: true
     become_user: "{{ user }}"
     raw: sh /tmp/install_omz.sh
+    ignore_errors: yes
 
   - name: Change {{ user }} shell to zsh
     user: 
