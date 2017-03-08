@@ -10,11 +10,10 @@
       - emacs
       - firefox
       - tmux
-      - xen-hypervisor-4.6-amd64
       - htop
 
   - name: Download google chrome
-    get_url: 
+    get_url:
       url: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
       dest: /tmp/google-chrome-stable_current_amd64.deb
   
