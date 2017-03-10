@@ -35,3 +35,13 @@
       name: awscli
       state: present
 
+  - name: Download gitkraken
+    get_url:
+      url: https://release.gitkraken.com/linux/gitkraken-amd64.deb
+      dest: /tmp/gitkraken.deb
+
+  - name: Install gitkraken
+    apt: 
+      deb: /tmp/gitkraken.deb
+
+
