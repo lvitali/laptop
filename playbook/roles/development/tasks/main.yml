@@ -6,4 +6,4 @@
   - include: install_zsh_and_oh-my-zsh.yml
   - include: install_docker.yml
   - include: install_phpstorm_and_sublime.yml
-  # - include: reboot.yml
+  - include: reboot.yml
