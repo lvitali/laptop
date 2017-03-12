@@ -20,6 +20,14 @@
       dest: /opt/
       owner: "{{ user }}"
       creates: /opt/PhpStorm-163.10504.2
+    register: unpack
+
+  - name: Fix the PHPStorm permissions folder
+    file:
+      path: /opt/PhpStorm-163.10504.2
+      owner: "{{ user }}"
+      recurse: yes
+    when: unpack.changed
 
   - name: Create phpstorm .desktop file
     copy:
