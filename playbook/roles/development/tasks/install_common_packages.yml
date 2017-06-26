@@ -11,6 +11,7 @@
       - firefox
       - tmux
       - htop
+      - vim
 
   - name: Download google chrome
     get_url:
