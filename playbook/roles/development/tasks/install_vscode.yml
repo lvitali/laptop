@@ -1,0 +1,10 @@
+---
+
+  - name: Download Visual Studio Code
+    get_url: 
+      url: https://go.microsoft.com/fwlink/?LinkID=760868
+      dest: /tmp/vscode.deb
+  
+  - name: Install sublime text
+    apt: 
+      deb: /tmp/vscode.deb
