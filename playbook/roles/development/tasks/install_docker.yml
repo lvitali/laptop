@@ -1,9 +1,18 @@
 ---
 
+  - name: Add docker GPG key
+    apt_key:
+      url: https://download.docker.com/linux/ubuntu/gpg
+
+  - name: Add docker repository
+    apt_repository:
+      repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable
+
   - name: Install docker
     apt:
-      pkg: docker.io
+      pkg: docker-ce
       state: present
+      update_cache: yes
 
   - name: Add {{ user }} to Docker group
     user:
