@@ -1,0 +1,28 @@
+---
+
+  - name: Ensure bash is installed
+    apt:
+      pkg: bash
+      state: present
+
+  - name: Download oh-my-bash repository
+    get_url:
+      url: https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh
+      dest: /tmp/install_oh_my_bash.sh
+      mode: u+rwx
+
+  - name: Install oh-my-zsh
+    become: true
+    become_user: "{{ user }}"
+    raw: sh /tmp/install_oh_my_bash.sh
+    ignore_errors: yes
+
+  - name: Change {{ user }} shell to bash
+    raw: chsh -s /bin/bash {{ user}}
+
+  - name: Configure pbcopy alias
+    lineinfile:
+      path: /home/{{ user }}/.bashrc
+      state: present
+      regexp: '^alias pbcopy="xclip -selection clipboard"'
+      line: 'alias pbcopy="xclip -selection clipboard"'
