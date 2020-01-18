@@ -2,4 +2,4 @@
 
 Ansible playbook to setup my laptop for development.
 
-Just need to execute the run.sh script and voilà.
+Just need to execute the run.sh script and voilà (Only tested on Debian Buster).
