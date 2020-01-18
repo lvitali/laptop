@@ -1,5 +1,21 @@
 ---
 
+  - name: Add gcloud SDK repository
+    apt_repository:
+
+  - name: Add Google Chrome repository
+    apt_repository:
+      repo: deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
+
+  - name: Add Visual Studio Code repository
+    apt_repository:
+      repo: deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main
+
+  - name: Add gcloud SDK GPG key
+    apt_key:
+      url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+      keyring: /usr/share/keyrings/cloud.google.gpg
+
   - name: Install packages
     apt:
       pkg: "{{ item }}"
@@ -8,41 +24,10 @@
     with_items:
       - git
       - emacs
-      - firefox
       - tmux
       - htop
       - vim
-
-  - name: Download google chrome
-    get_url:
-      url: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-      dest: /tmp/google-chrome-stable_current_amd64.deb
-  
-  - name: Install google chrome
-    apt: 
-      deb: /tmp/google-chrome-stable_current_amd64.deb
-
-  - name: Download dropbox
-    get_url:
-      url: https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd64.deb
-      dest: /tmp/dropbox.deb
-
-  - name: Install dropbox
-    apt: 
-      deb: /tmp/dropbox.deb
-
-  - name: Install awscli
-    pip:
-      name: awscli
-      state: present
-
-  - name: Download gitkraken
-    get_url:
-      url: https://release.gitkraken.com/linux/gitkraken-amd64.deb
-      dest: /tmp/gitkraken.deb
-
-  - name: Install gitkraken
-    apt: 
-      deb: /tmp/gitkraken.deb
-
-
+      - xclip
+      - code
+      - google-chrome-stable
+      - google-cloud-sdk
