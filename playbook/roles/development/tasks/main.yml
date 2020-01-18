@@ -3,7 +3,6 @@
   - include: upgrade_os.yml
   - include: install_common_packages.yml
   - include: setup_user.yml
-  - include: install_zsh_and_oh-my-zsh.yml
+  - include: configure_bash.yml
   - include: install_docker.yml
-  - include: install_vscode.yml
-  # - include: reboot.yml
+  - include: reboot.yml
