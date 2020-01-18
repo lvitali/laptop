@@ -1,0 +1,29 @@
+---
+
+  - name: Add PHP Sury GPG key
+    apt_key:
+      url: https://packages.sury.org/php/apt.gpg
+      keyring: /etc/apt/trusted.gpg.d/php.gpg
+
+  - name: Add PHP Sury repository
+    apt_repository:
+      repo: deb [arch=amd64] https://packages.sury.org/php/ buster main     
+
+  - name: Install PHP 7.4
+    apt:
+      pkg: "{{ item }}"
+      state: present
+      update_cache: yes
+    with_items:
+      - php7.4
+      - php7.4-bcmath
+      - php7.4-cli
+      - php7.4-curl      
+      - php7.4-common
+      - php7.4-imap      
+      - php7.4-intl
+      - php7.4-mbstring
+      - php7.4-mysql
+      - php7.4-redis
+      - php7.4-xml
+      - php7.4-zip

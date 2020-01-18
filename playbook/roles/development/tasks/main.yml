@@ -5,4 +5,5 @@
   - include: setup_user.yml
   - include: configure_bash.yml
   - include: install_docker.yml
+  - include: install_php.yml
   - include: reboot.yml
