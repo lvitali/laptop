@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # Install ansible dependencies
-sudo apt-get install build-essential libssl-dev libffi-dev python-dev python-setuptools -y
-sudo easy_install pip
+sudo apt-get install build-essential libssl-dev libffi-dev python-dev python-setuptools python-pip -y
 sudo -H pip install -r requirements.txt
 
 # Run ansible playbook
