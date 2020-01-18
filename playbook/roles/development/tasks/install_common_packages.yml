@@ -1,7 +1,13 @@
 ---
 
+  - name: Add gcloud SDK GPG key
+    apt_key:
+      url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+      keyring: /usr/share/keyrings/cloud.google.gpg
+
   - name: Add gcloud SDK repository
     apt_repository:
+      repo: deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt cloud-sdk main
 
   - name: Add Google Chrome repository
     apt_repository:
@@ -10,11 +16,6 @@
   - name: Add Visual Studio Code repository
     apt_repository:
       repo: deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main
-
-  - name: Add gcloud SDK GPG key
-    apt_key:
-      url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
-      keyring: /usr/share/keyrings/cloud.google.gpg
 
   - name: Install packages
     apt:
@@ -31,3 +32,7 @@
       - code
       - google-chrome-stable
       - google-cloud-sdk
+      - golang
+      - kubectl
+      - kubectx
+
